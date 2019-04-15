@@ -81,7 +81,8 @@ client_drop_cache,,func(cli *rpc.Client, Arg0 int) int
 client_highlight,,func(cli *rpc.Client, Arg0 []byte, Arg1 string, Arg2 gocode_env) (c []highlight_range, d int)
 client_set,,func(cli *rpc.Client, Arg0, Arg1 string) string
 client_status,,func(cli *rpc.Client, Arg0 int) string
-`[1:]},
+`[1:]}, {"sexp", `
+((func "client_auto_complete" "func(cli *rpc.Client, Arg0 []byte, Arg1 string, Arg2 int, Arg3 gocode_env) (c []candidate, d int)" "gocode")(func "client_close" "func(cli *rpc.Client, Arg0 int) int" "gocode")(func "client_cursor_type_pkg" "func(cli *rpc.Client, Arg0 []byte, Arg1 string, Arg2 int) (typ, pkg string)" "gocode")(func "client_drop_cache" "func(cli *rpc.Client, Arg0 int) int" "gocode")(func "client_highlight" "func(cli *rpc.Client, Arg0 []byte, Arg1 string, Arg2 gocode_env) (c []highlight_range, d int)" "gocode")(func "client_set" "func(cli *rpc.Client, Arg0, Arg1 string) string" "gocode")(func "client_status" "func(cli *rpc.Client, Arg0 int) string" "gocode"))`[1:]},
 		{"csv", `
 func,,client_auto_complete,,func(cli *rpc.Client, Arg0 []byte, Arg1 string, Arg2 int, Arg3 gocode_env) (c []candidate, d int),,gocode
 func,,client_close,,func(cli *rpc.Client, Arg0 int) int,,gocode

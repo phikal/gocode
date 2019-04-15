@@ -12,6 +12,7 @@ var Formatters = map[string]Formatter{
 	"csv":              csvFormat,
 	"csv-with-package": csvFormat,
 	"emacs":            emacsFormat,
+	"sexp":             sexpFormat,
 	"godit":            goditFormat,
 	"json":             jsonFormat,
 	"nice":             NiceFormat,
@@ -69,6 +70,14 @@ func emacsFormat(w io.Writer, candidates []Candidate, num int) {
 		}
 		fmt.Fprintf(w, "%s,,%s\n", c.Name, hint)
 	}
+}
+
+func sexpFormat(w io.Writer, candidates []Candidate, num int) {
+	fmt.Fprint(w, "(")
+	for _, c := range candidates {
+		fmt.Fprintf(w, "(%s \"%s\" \"%s\" \"%s\")", c.Class, c.Name, c.Type, c.PkgPath)
+	}
+	fmt.Fprint(w, ")")
 }
 
 func csvFormat(w io.Writer, candidates []Candidate, num int) {
